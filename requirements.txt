@@ -1,0 +1,4 @@
+chainlit==0.5.0
+chromadb==0.3.26
+langchain==0.0.225
+tiktoken==0.4.0

@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    ports:
+      - 5000:5000
+    restart: on-failure
+    depends_on:
+      - vicuna
+      - all-minilm
+
+  vicuna:
+    image: ghcr.io/premai-io/chat-vicuna-7b-q4-cpu:1.0.4
+    ports:
+      - 8000:8111
+    restart: on-failure
+
+  all-minilm:
+    image: ghcr.io/premai-io/embeddings-all-minilm-l6-v2-cpu:1.0.2
+    ports:
+      - 8000:8444
+    restart: on-failure
+  
